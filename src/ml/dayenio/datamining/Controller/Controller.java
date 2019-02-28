@@ -4,10 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
- * Created by acer on 27/02/2019.
+ * Created by @siemah on 27/02/2019.
  */
 public class Controller {
 
@@ -16,7 +15,6 @@ public class Controller {
     protected FileReader fileReader;
     protected ArrayList<String> fileLines = new ArrayList<String>();
     protected ArrayList<String> itemsListChain = new ArrayList<String>();
-    HashMap<String, Integer> itemsList = new HashMap<String, Integer>();
 
     /**
      * constructor of Controller
@@ -66,10 +64,8 @@ public class Controller {
         ArrayList<String> lines = this.getFileLines();
         lines.forEach(line -> {
             String[] lineStr;
-            System.out.println(line);
             lineStr = line.split(",");
-            for (int i = 0; i < lineStr.length; i++)
-                this.itemsListChain.add(lineStr[2].trim());
+            this.itemsListChain.add(lineStr[2].trim());
         });
         return  this.itemsListChain;
     }

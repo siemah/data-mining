@@ -103,4 +103,4 @@
 -, 987,		gtattctcaacaagattaaccgacagattcaatctcgtggatggacgttcaacattg
 -,1226,		cgcgactacgatgagatgcctgagtgcttccgttactggattgtcaccaaggcttcc
 -, 794,		ctcgtcctcaatggcctctaaacgggtcttgaggggttttttgctgaaaggaggaac
--,1442,		taacattaataaataaggaggctctaatggcactcattagccaatcaatcaagaact
+-,1442,		taacattaataaataaggaggctctaatggcactcattagccaatcaatcaagaac
