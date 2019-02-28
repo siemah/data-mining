@@ -18,6 +18,10 @@ public class Controller {
     protected ArrayList<String> itemsListChain = new ArrayList<String>();
     HashMap<String, Integer> itemsList = new HashMap<String, Integer>();
 
+    /**
+     * constructor of Controller
+     * @param fileath the path of file of data
+     */
     public Controller(String fileath) {
         this.filePath = fileath;
         this.init();
