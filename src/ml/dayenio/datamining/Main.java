@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int minimumSupport = 5;
+        int minimumSupport = 6;
         LinkedList<String> items = new LinkedList<>();
         items.add("a");
         items.add("g");
