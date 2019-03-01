@@ -7,14 +7,24 @@ import java.util.Set;
 
 /**
  * Created by @siemah on 28/02/2019.
+ * @var minSupp Integer represent a minimum support
+ * @var items Array[String] contain a bunch of items
+ * @var itemsSupp HashMap is a list of key:value of Item:redundancy
  */
 public class GSP {
 
     private int minSupp;
-    private String[] items;
-    private HashMap<String, Integer> itemsSupp = new HashMap<>();
+    private LinkedList<String> items;
+    private HashMap<String, Integer> itemsSupp;
 
-    public GSP(int minSupp, String[] items) {
+    public GSP(){}
+
+    /**
+     * constructor of GSP class
+     * @param minSupp Integer minimum support
+     * @param items String[] list of items
+     */
+    public GSP(int minSupp, LinkedList<String> items) {
         this.init(minSupp, items);
     }
 
@@ -22,12 +32,16 @@ public class GSP {
      * assign some values to GSP vars
      * @param minSupp minimum support
      * @param items list of items
+     * @return instance of this class GSP
      */
-    private void init(int minSupp, String[] items) {
+    public GSP init(int minSupp, LinkedList<String> items) {
         this.minSupp = minSupp;
         this.items = items;
-        for (int i = 0; i < this.items.length; i++)
-            this.itemsSupp.put(items[i], 0);
+        this.itemsSupp = new HashMap<>();
+        this.items.forEach(s -> {
+            this.itemsSupp.put(s, 0);
+        });
+        return this;
     }
 
     /**
@@ -35,7 +49,7 @@ public class GSP {
      * @param itemsChains String represent a data items
      * @return HashMap key is item and value is number of redundancy
      */
-    public GSP computeRedundancy (ArrayList<String> itemsChains) {
+    public GSP computeRedundancyIn (ArrayList<String> itemsChains) {
         for (String item:this.items) {
             itemsChains.forEach(itemsChain -> {
                 int currentSupp;
@@ -46,14 +60,6 @@ public class GSP {
             });
         }
         return this;
-    }
-
-    /**
-     * getter of itemsSupp
-     * @return
-     */
-    public HashMap<String, Integer> getItemsSupp(){
-        return this.itemsSupp;
     }
 
     /**
@@ -68,8 +74,9 @@ public class GSP {
     }
 
     /**
-     * calculate cartesian product
-     * @return GSP (Fluent pattern)
+     * calculate cartesian product of items has
+     * minSupp(minimum support greater than minSupp)
+     * @return Array[String] result of cartesian product
      */
     public LinkedList<String> computeCartesianProduct() {
         LinkedList<String> result = new LinkedList<>();
@@ -89,6 +96,14 @@ public class GSP {
      */
     public void setMinSupp (int minSupp) {
         this.minSupp = minSupp;
+    }
+
+    /**
+     * getter of itemsSupp
+     * @return
+     */
+    public HashMap<String, Integer> getItemsSupp(){
+        return this.itemsSupp;
     }
 
 }
