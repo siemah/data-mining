@@ -26,7 +26,7 @@ public class Main {
 
         LinkedList<String> f1 =
                 gsp
-                    .init(minimumSupport, items)
+                    .init(0, items)
                     .computeRedundancyIn(fl)
                     .removeItemsLessThanMinSupp()
                     .computeCartesianProduct();

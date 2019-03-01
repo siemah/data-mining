@@ -67,9 +67,11 @@ public class GSP {
      * @return  GSP instance (fluent pattern)
      */
     public GSP removeItemsLessThanMinSupp () {
+        LinkedList<String> itemsToRemove = new LinkedList();
         this.itemsSupp.forEach((s, integer) -> {
-            if(integer < this.minSupp) this.itemsSupp.remove(s);
+            if(integer < this.minSupp) itemsToRemove.add(s);
         });
+        itemsToRemove.forEach(s -> this.itemsSupp.remove(s));
         return this;
     }
 
